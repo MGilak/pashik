@@ -1,0 +1,73 @@
+header {
+  position: relative;
+  padding: 10px 110px 0 130px;
+  background-image: url(../../../public/images/main-bg.jpg);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 0;
+}
+.header nav {
+  width: 47%;
+}
+.header ul {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  /* background-color: aliceblue; */
+  /* width: 100%; */
+}
+.header ul li {
+  /* margin-left: 40px; */
+  font-size: 20px;
+}
+.header ul li a {
+  color: #fff;
+}
+.hamburger {
+  position: absolute;
+  left: 0;
+}
+.line__button {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  top: 0px;
+  cursor: pointer;
+}
+.line {
+  height: 3px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  position: absolute;
+  left: 50%;
+  transition: 1s all;
+}
+.line-1 {
+  top: 30%;
+  width: 20px;
+}
+.line-2 {
+  top: 50%;
+  width: 40px;
+}
+.line-3 {
+  top: 70%;
+  width: 30px;
+}
+
+.header-logo {
+  /* background-color: aliceblue; */
+  /* margin-right: 40px; */
+  /* padding-right: 50px; */
+}
+.header__buttons button {
+  margin-right: 30px;
+  background: none;
+  outline: none;
+  border: none;
+  color: #fff;
+}
