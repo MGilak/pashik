@@ -7,11 +7,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 10px 0;
+  padding: 22px 0;
+  width: 100%;
 }
 .header nav {
-  width: 47%;
+  width: 54%;
 }
 .header ul {
   display: flex;
@@ -22,7 +22,7 @@ header {
 }
 .header ul li {
   /* margin-left: 40px; */
-  font-size: 20px;
+  font-size: 18px;
 }
 .header ul li a {
   color: #fff;
@@ -70,4 +70,86 @@ header {
   outline: none;
   border: none;
   color: #fff;
+}
+.moblie-menu-top {
+  display: none;
+}
+header .corner {
+  position: absolute;
+  z-index: 30;
+}
+.moblie-menu-top .corner.right {
+  right: -1px;
+  bottom: -37px;
+}
+.moblie-menu-top .corner.left {
+  left: 2px;
+  bottom: -33px;
+  transform: rotate(270deg);
+}
+.moblie-menu-top button,
+.moblie-menu-bottom button {
+  background: none;
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+.moblie-menu-bottom {
+  display: none;
+}
+header .bottom-right {
+  right: 2px;
+  bottom: 49px;
+  transform: rotate(90deg);
+}
+header .bottom-left {
+  left: -1px;
+  bottom: 53px;
+  transform: rotate(180deg);
+}
+
+/* responsive */
+@media only screen and (max-width: 1300px) {
+  .header {
+    padding: 8px 0;
+  }
+  .header nav {
+    width: 38%;
+  }
+  .header ul li {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 1079px) {
+  .header {
+    display: none;
+  }
+  .moblie-menu-top,
+  .moblie-menu-bottom {
+    display: block;
+    z-index: 10;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: white;
+    color: #000;
+    height: 55px;
+    padding: 0 2rem;
+  }
+
+  .moblie-menu-top {
+    flex-direction: row-reverse;
+    top: 0;
+    left: 0;
+  }
+  .moblie-menu-bottom {
+    bottom: 0;
+    left: 0;
+    flex-direction: row;
+  }
 }

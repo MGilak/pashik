@@ -1,10 +1,15 @@
+:root {
+  --color1: #eb7400;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: "vazir";
+  font-family: "vazir", sans-serif;
+  color: #fff;
 }
 
 a {
@@ -13,9 +18,33 @@ a {
 ul {
   list-style: none;
 }
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+button {
+  background: none;
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
 
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.has-padding {
+  padding: 0 6rem;
+}
+
+::-webkit-scrollbar {
+  background-color: #000;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #eb7400;
+  border-radius: 10px;
 }
