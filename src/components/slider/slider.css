@@ -1,0 +1,44 @@
+.mySwiper {
+  flex-grow: 1;
+  display: flex;
+  gap: 2rem;
+  overflow: hidden;
+  direction: rtl;
+  padding-top: 2.4rem !important;
+  padding-left: 4rem !important;
+}
+.slide {
+  flex-shrink: 0;
+  width: 300px !important;
+  height: 96% !important;
+  margin: 7px 0;
+  position: relative;
+  border-radius: 10px;
+  border: 0.05rem solid rgba(235, 116, 0, 0.38);
+}
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-button-next {
+  display: none;
+}
+.slide .product__image {
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  max-height: 298px;
+}
+.slide .product__image img {
+  width: 100%;
+  object-fit: contain;
+  transform: translateY(-5%);
+}
+.slide .product__details {
+  padding: 1rem;
+  text-align: center;
+}
+
+.slide .product__details__price {
+  margin-top: 0;
+}
+.slide .product__details__title {
+  font-size: 0.9rem;
+}
