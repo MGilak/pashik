@@ -1,5 +1,15 @@
 :root {
   --color1: #eb7400;
+  --color1hover: #fa8e2c;
+  --color2: #000;
+  --color2hover: #5d5d5d;
+  --color3: #e5e5e5;
+  --color4: rgba(229, 229, 229, 0.53);
+  --color4hover: rgba(250, 239, 239, 0.53);
+  --header-bg: rgba(73, 73, 73, 0.65);
+  --header-bg2: rgba(86, 79, 79, 0.4);
+  --colorgraylow: #d0d0d0;
+  --colordanger: #ff5656;
 }
 
 * {
@@ -56,4 +66,9 @@ video {
 }
 .slider {
   margin-top: 400px;
+}
+.bg__dark {
+  background-image: url(../public/images/main-bg.jpg);
+  padding-bottom: 50px;
+  user-select: none;
 }

@@ -1,12 +1,12 @@
 import "./App.css";
-import MainPage from "./pages/MainPage";
-import Slider from "./components/slider/Slider";
+import AllProducts from "./pages/AllProducts";
+// import MainPage from "./pages/MainPage";
 
 function App() {
   return (
     <div>
-      <MainPage />
-      {/* <Slider  className="slider"/> */}
+      {/* <MainPage /> */}
+      <AllProducts />
     </div>
   );
 }
