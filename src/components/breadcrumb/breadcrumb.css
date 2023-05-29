@@ -1,0 +1,18 @@
+.breadcrumb {
+  direction: rtl;
+  padding: 0.6rem 7%;
+  background-color: rgba(138, 133, 133, 0.349);
+  color: #989898;
+  display: flex;
+}
+.breadcrumb a {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.breadcrumb a:hover {
+  color: #c2c2c2;
+}
+.breadcrumb svg {
+  margin: 0 1.2rem;
+}

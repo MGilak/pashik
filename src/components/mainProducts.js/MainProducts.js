@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./mainProducts.css";
 import ChildCategory from "./childCategory/ChildCategory";
+import ProductItem from "../main/product/ProductItem";
+import products from "../../data";
+import Breadcrumb from "../breadcrumb/Breadcrumb";
 
 const MainProducts = () => {
+  const [productsInfo, setProductsInfo] = useState(products);
+
   const categoryTitle = ["مردانه", "زنانه", "بچگانه"];
   const categories = [
     [
@@ -34,44 +39,7 @@ const MainProducts = () => {
 
   return (
     <div className="mainProducts">
-      <div className="breadcrumb">
-        <a href="##">
-          فروشگاه پاشیک
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="9"
-            height="18"
-            viewBox="0 0 9 18"
-            data-v-27930b52=""
-          >
-            <path
-              id="Icon_ionic-md-arrow-dropup"
-              data-name="Icon ionic-md-arrow-dropup"
-              d="M0,9,9,0l9,9Z"
-              transform="translate(0 18) rotate(-90)"
-              fill="#989898"
-            ></path>
-          </svg>
-        </a>
-        <a href="##">
-          همه محصولات
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="9"
-            height="18"
-            viewBox="0 0 9 18"
-            data-v-27930b52=""
-          >
-            <path
-              id="Icon_ionic-md-arrow-dropup"
-              data-name="Icon ionic-md-arrow-dropup"
-              d="M0,9,9,0l9,9Z"
-              transform="translate(0 18) rotate(-90)"
-              fill="#989898"
-            ></path>
-          </svg>
-        </a>
-      </div>
+      <Breadcrumb />
 
       {/* products */}
       <div className="products">
@@ -371,7 +339,82 @@ const MainProducts = () => {
             </div>
           </div>
 
-          <div className="products__list__main"></div>
+          <div className="products__list__main">
+            <div className="products__list__main__header">
+              <div className="products__list__header__sort">
+                <span>ترتیب بر اساس:</span>
+                <div class="products__list__header__sort__item">
+                  <button>جدیدترین</button>
+                  <button>پرفروش ترین</button>
+                  <button>تخفیف دار</button>
+                  <button>ارزان ترین</button>
+                  <button>گران ترین</button>
+                </div>
+                <div class="products__list__header__sort__count">
+                  <span>41 کالا</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="products__list__main__body__container">
+              <div className="products__list__main__body">
+                {productsInfo.map((product) => (
+                  <ProductItem
+                    img={product.img}
+                    price={product.price}
+                    title={product.title}
+                  />
+                ))}
+              </div>
+
+              <ul className="pagination">
+                <li className="page-item pagination-page-nav active">
+                  <a href="##" className="page-link">
+                    1
+                  </a>
+                </li>
+                <li className="page-item pagination-page-nav">
+                  <a href="##" className="page-link">
+                    2
+                  </a>
+                </li>
+                <li className="page-item pagination-page-nav">
+                  <a href="##" className="page-link">
+                    <svg
+                      class="page-arrow"
+                      xmlns="http://www.w3.org/2000/svg"
+                      x="0px"
+                      y="0px"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 226 226"
+                    >
+                      <g
+                        fill="none"
+                        fill-rule="nonzero"
+                        stroke="none"
+                        stroke-width="1"
+                        stroke-linecap="butt"
+                        stroke-linejoin="miter"
+                        stroke-miterlimit="10"
+                        stroke-dasharray=""
+                        stroke-dashoffset="0"
+                        font-family="none"
+                        font-weight="none"
+                        font-size="none"
+                        text-anchor="none"
+                      >
+                        <path d="M0,226v-226h226v226z" fill="none"></path>
+                        <g fill="#b2b2b2">
+                          <path d="M143.19219,56.32344c-2.11875,-2.11875 -5.47344,-2.11875 -7.41563,0l-52.96875,52.96875c-2.11875,2.11875 -2.11875,5.47344 0,7.41562l52.96875,52.96875c1.05937,1.05937 2.47188,1.58906 3.70781,1.58906c1.23594,0 2.64844,-0.52969 3.70781,-1.58906c2.11875,-2.11875 2.11875,-5.47344 0,-7.41563l-49.26094,-49.26094l49.26094,-49.26094c2.11875,-2.11875 2.11875,-5.29687 0,-7.41563z"></path>
+                        </g>
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

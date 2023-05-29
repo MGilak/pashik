@@ -1,12 +1,14 @@
 import "./App.css";
-import AllProducts from "./pages/AllProducts";
+// import AllProducts from "./pages/AllProducts";
 // import MainPage from "./pages/MainPage";
+import SingleProduct from "./pages/SingleProduct";
 
 function App() {
   return (
-    <div>
+    <div className="bg__dark">
       {/* <MainPage /> */}
-      <AllProducts />
+      {/* <AllProducts /> */}
+      <SingleProduct />
     </div>
   );
 }
