@@ -13,13 +13,13 @@ const Footer = () => {
             گلستان ، گرگان، بلوار آیت الله کاشانی خیابان آیت الله کاشانی 28
             (آبشار)
           </address>
-          <div class="footer__info__telephone">
+          <div className="footer__info__telephone">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="21.451"
               height="21.489"
               viewBox="0 0 21.451 21.489"
-              class="icon"
+              className="icon"
             >
               <path
                 id="Icon_feather-phone-call"
@@ -28,20 +28,20 @@ const Footer = () => {
                 transform="translate(-2.417 -0.672)"
                 fill="none"
                 stroke="#eb7400"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
               ></path>
             </svg>
             <span>پشتیبانی: 32138043-017</span>
           </div>
-          <a class="footer__info__email" href="##">
+          <a className="footer__info__email" href="##">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="23.408"
               height="23.73"
               viewBox="0 0 23.408 23.73"
-              class="icon"
+              className="icon"
               data-v-136966fa=""
             >
               <g
@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
 
         <div className="footer__menu">
-          <div class="footer__title">دسترسی سریع</div>
+          <div className="footer__title">دسترسی سریع</div>
           <ul className="footer__menu__list">
             <li>
               <a href="##">رویه ارسال کالا</a>
@@ -101,15 +101,15 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div class="footer__bottom bg__dark">
-        <div class="footer__bottom__copyright">
+      <div className="footer__bottom bg__dark">
+        <div className="footer__bottom__copyright">
           کلیه حقوق این وب‌سایت به{" "}
-          <a href="##" class="router-link-active router-link-exact-active">
+          <a href="##" className="router-link-active router-link-exact-active">
             پاشیک{" "}
           </a>
           تعلق دارد و کپی‌برداری از آن ممنوع می‌باشد.
         </div>
-        <div class="footer__bottom__english__copyright">
+        <div className="footer__bottom__english__copyright">
           Copyright 2021
           <a href="##"> pashikshoes.com </a>
           Designed By

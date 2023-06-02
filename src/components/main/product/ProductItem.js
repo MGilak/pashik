@@ -1,17 +1,25 @@
 import React from "react";
 import "./productItem.css";
+import { Link } from "react-router-dom";
+import { useProductActions } from "./../../../context/SingleProductProvider";
 
 const ProductItem = ({ img, price, title }) => {
+  const dispatch = useProductActions();
+
+  const shoeDataHandler = () => {
+    console.log("show");
+    dispatch({ type: "SHOW_PRODUCT", payload: { img, price, title } });
+  };
   return (
     <div className="product">
       <div className="product__image">
         <img src={img} alt="" />
-        <div class="product__fast__show">
-          <div class="product__fast__show__buttons">
-            <a href="##" class="button">
+        <div className="product__fast__show">
+          <div className="product__fast__show__buttons">
+            <Link to="/single-product" onClick={shoeDataHandler} className="button">
               مشاهده
-            </a>
-            <button class="button">
+            </Link>
+            <button className="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24.624"
@@ -48,8 +56,8 @@ const ProductItem = ({ img, price, title }) => {
           <span>{title}</span>
         </a>
         <div className="product__details__price">
-          <span dir="rtl" class="product__info__price__amount alone">
-            <span class="product__info__price__amount__number">{price}</span>
+          <span dir="rtl" className="product__info__price__amount alone">
+            <span className="product__info__price__amount__number">{price}</span>
             تومان
           </span>
         </div>

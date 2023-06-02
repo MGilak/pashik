@@ -16,7 +16,7 @@ const ChildCategory = ({ title, category }) => {
       onClick={ChildCategoryHandler}
     >
       <div className="products__list__side__categories__item__header">
-        <div class="checkbox">
+        <div className="checkbox">
           <svg
             id="Component_51_8"
             data-name="Component 51 – 8"
@@ -31,7 +31,7 @@ const ChildCategory = ({ title, category }) => {
               data-name="Rectangle 121"
               fill="none"
               stroke="currentColor"
-              stroke-width="1"
+              strokeWidth="1"
               data-v-6a24a3ba=""
             >
               <rect
@@ -52,27 +52,6 @@ const ChildCategory = ({ title, category }) => {
               ></rect>
             </g>
           </svg>
-          {/* <svg
-                          class="check"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="15.992"
-                          height="11.464"
-                          viewBox="0 0 15.992 11.464"
-                          data-v-6a24a3ba=""
-                        >
-                          <path
-                            id="Icon_feather-check"
-                            data-name="Icon feather-check"
-                            d="M19.164,9l-9.05,9.05L6,13.936"
-                            transform="translate(-4.586 -7.586)"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            data-v-6a24a3ba=""
-                          ></path>
-                        </svg> */}
         </div>
         <span>{title}</span>
         <button
@@ -101,7 +80,7 @@ const ChildCategory = ({ title, category }) => {
       >
         {category.map((item) => (
           <div className="products__list__side__categories__children__item">
-            <div class="checkbox">
+            <div className="checkbox">
               <svg
                 id="Component_51_8"
                 data-name="Component 51 – 8"
@@ -116,7 +95,7 @@ const ChildCategory = ({ title, category }) => {
                   data-name="Rectangle 121"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1"
+                  strokeWidth="1"
                   data-v-6a24a3ba=""
                 >
                   <rect

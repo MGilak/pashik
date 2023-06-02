@@ -40,8 +40,7 @@
 .products__list__side__categories__children {
   max-height: 0;
   overflow: hidden;
-  /* height: auto */
-  transition: 0.2s all;
+  transition: all 0.3s ease-in-out;
 }
 .products__list__side__categories__children.open {
   max-height: unset;

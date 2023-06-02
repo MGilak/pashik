@@ -31,6 +31,7 @@
   flex-direction: column;
   gap: 1.6rem;
 }
+
 /* sizes */
 .products__list__side__sizes {
   display: flex;

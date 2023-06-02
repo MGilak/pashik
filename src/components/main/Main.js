@@ -5,6 +5,7 @@ import Footer from "../footer/Footer";
 import products from "./../../data";
 import Slider from "../slider/Slider";
 import "./main.css";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   const [activePoint, setActivePoint] = useState(0);
@@ -76,7 +77,9 @@ const Main = () => {
             <img src="./images/top-slider-dots.f8d90272 (1).svg" alt="" />
           </div>
           <div
-            class={opacity ? "top__slider__title active" : "top__slider__title"}
+            className={
+              opacity ? "top__slider__title active" : "top__slider__title"
+            }
           >
             <h3>
               {activePoint === 0
@@ -113,9 +116,9 @@ const Main = () => {
         <a className="firstRow" href="##">
           <img src="./images/Group-256.png" alt="" />
         </a>
-        <a className="firstRow" href="##">
+        <Link to="/all-products" className="firstRow">
           <img src="./images/Group-255 (1).png" alt="" />
-        </a>
+        </Link>
         <a className="firstRow" href="##">
           <img src="./images/Group-255.png" alt="" />
         </a>
@@ -151,9 +154,9 @@ const Main = () => {
             />
           ))}
         </div>
-        <div class="products__home__more">
-          <a href="##" class="">
-            <span class="products__home__more__text">مشاهده همه</span>
+        <div className="products__home__more">
+          <a href="##" className="">
+            <span className="products__home__more__text">مشاهده همه</span>
           </a>
         </div>
       </div>
@@ -161,14 +164,14 @@ const Main = () => {
       {/* swiper slider */}
       <div className="bg__dark">
         <div className="products__slider">
-          <div class="products__slider__info">
-            <div class="products__slider__info__top">
+          <div className="products__slider__info">
+            <div className="products__slider__info__top">
               <h4> پیشنـهـادی پاشیـک </h4>
               <h4>Best Selling Products</h4>
             </div>
-            <div class="products__slider__info__bottom">
-              <a href="/products" class="">
-                <span class="products__home__more__text">مشاهده همه</span>
+            <div className="products__slider__info__bottom">
+              <a href="/products" className="">
+                <span className="products__home__more__text">مشاهده همه</span>
               </a>
             </div>
           </div>

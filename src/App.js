@@ -1,14 +1,17 @@
 import "./App.css";
-// import AllProducts from "./pages/AllProducts";
-// import MainPage from "./pages/MainPage";
-import SingleProduct from "./pages/SingleProduct";
+import { useRoutes } from "react-router-dom";
+import routes from "./routes";
+import CartProvider from "./context/CartProvider";
+import SingleProductProvider from "./context/SingleProductProvider";
 
 function App() {
+  const router = useRoutes(routes);
+
   return (
     <div className="bg__dark">
-      {/* <MainPage /> */}
-      {/* <AllProducts /> */}
-      <SingleProduct />
+      <CartProvider>
+        <SingleProductProvider>{router}</SingleProductProvider>
+      </CartProvider>
     </div>
   );
 }

@@ -2,8 +2,17 @@ import React from "react";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
+import { useCartActions } from "./../context/CartProvider";
+import { useProduct } from "../context/SingleProductProvider";
 
 const SingleProduct = () => {
+  const dispatch = useCartActions();
+  const product = useProduct();
+  const { img, price, title } = product;
+  const addProductHandler = (product) => {
+    dispatch({ type: "ADD", payload: product });
+  };
+
   return (
     <div>
       <Header />
@@ -78,9 +87,9 @@ const SingleProduct = () => {
                     d="M22.411,13.455A8.955,8.955,0,1,1,13.455,4.5,8.955,8.955,0,0,1,22.411,13.455Z"
                     fill="none"
                     stroke="#fff"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
                   ></path>
                   <path
                     id="Path_1774"
@@ -89,9 +98,9 @@ const SingleProduct = () => {
                     transform="translate(-5.195 -5.195)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
                   ></path>
                   <path
                     id="Path_1775"
@@ -100,9 +109,9 @@ const SingleProduct = () => {
                     transform="translate(-3.045 -1.903)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
                   ></path>
                   <path
                     id="Path_1776"
@@ -111,14 +120,14 @@ const SingleProduct = () => {
                     transform="translate(-1.903 -3.045)"
                     fill="none"
                     stroke="#fff"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
                   ></path>
                 </g>
               </svg>
             </button>
-            <img src="./images/one/variety-32793.jpg" alt="" />
+            <img src={img} alt="" />
           </div>
         </div>
 
@@ -152,9 +161,9 @@ const SingleProduct = () => {
                   transform="translate(-2.5 -2.5)"
                   fill="none"
                   stroke="#eb7400"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
                 ></path>
               </svg>
               <svg
@@ -171,9 +180,9 @@ const SingleProduct = () => {
                   transform="translate(-2.5 -2.5)"
                   fill="none"
                   stroke="#eb7400"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
                 ></path>
               </svg>
               <svg
@@ -190,9 +199,9 @@ const SingleProduct = () => {
                   transform="translate(-2.5 -2.5)"
                   fill="none"
                   stroke="#eb7400"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
                 ></path>
               </svg>
               <svg
@@ -209,9 +218,9 @@ const SingleProduct = () => {
                   transform="translate(-2.5 -2.5)"
                   fill="none"
                   stroke="#eb7400"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
                 ></path>
               </svg>
               <svg
@@ -228,9 +237,9 @@ const SingleProduct = () => {
                   transform="translate(-2.5 -2.5)"
                   fill="none"
                   stroke="#eb7400"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
                 ></path>
               </svg>
             </div>
@@ -250,7 +259,7 @@ const SingleProduct = () => {
               <div className="product__info__price">
                 <span dir="rtl" className="product__info__price__amount alone">
                   <span className="product__info__price__amount__number">
-                    ۵۸۸.۰۰۰
+                    {price}
                   </span>{" "}
                   تومان{" "}
                 </span>
@@ -352,8 +361,8 @@ const SingleProduct = () => {
                           transform="translate(609 655.349)"
                           fill="none"
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-width="1"
+                          strokeLinecap="round"
+                          strokeWidth="1"
                         ></line>
                         <line
                           id="Line_22"
@@ -362,8 +371,8 @@ const SingleProduct = () => {
                           transform="translate(615.5 648.849) rotate(90)"
                           fill="none"
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-width="1"
+                          strokeLinecap="round"
+                          strokeWidth="1"
                         ></line>
                       </g>
                     </svg>
@@ -383,8 +392,8 @@ const SingleProduct = () => {
                         transform="translate(0.5 0.5)"
                         fill="none"
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-width="5"
+                        strokeLinecap="round"
+                        strokeWidth="5"
                       ></line>
                     </svg>
                   </button>
@@ -392,7 +401,10 @@ const SingleProduct = () => {
               </div>
             </div>
 
-            <button className="orange__button">
+            <button
+              onClick={() => addProductHandler}
+              className="orange__button"
+            >
               <span className="orange__button__text">افزودن به سبد خرید</span>
               <span>
                 <svg
@@ -448,8 +460,8 @@ const SingleProduct = () => {
                         transform="translate(609 655.349)"
                         fill="none"
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-width="1"
+                        strokeLinecap="round"
+                        strokeWidth="1"
                       ></line>
                       <line
                         id="Line_22"
@@ -458,8 +470,8 @@ const SingleProduct = () => {
                         transform="translate(615.5 648.849) rotate(90)"
                         fill="none"
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-width="1"
+                        strokeLinecap="round"
+                        strokeWidth="1"
                       ></line>
                     </g>
                   </svg>
@@ -477,8 +489,8 @@ const SingleProduct = () => {
                       transform="translate(0.5 0.5)"
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-width="5"
+                      strokeLinecap="round"
+                      strokeWidth="5"
                     ></line>
                   </svg>
                 </button>

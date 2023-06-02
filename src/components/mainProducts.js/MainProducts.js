@@ -67,9 +67,9 @@ const MainProducts = () => {
                         transform="translate(621.395 384.695)"
                         fill="none"
                         stroke="#fff"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
                       ></path>
                       <path
                         id="Vector-2"
@@ -78,9 +78,9 @@ const MainProducts = () => {
                         transform="translate(621 393)"
                         fill="none"
                         stroke="#fff"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
                       ></path>
                       <path
                         id="Vector-3"
@@ -89,9 +89,9 @@ const MainProducts = () => {
                         transform="translate(621 398)"
                         fill="none"
                         stroke="#fff"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
                       ></path>
                       <path
                         id="Vector-4"
@@ -140,9 +140,9 @@ const MainProducts = () => {
                           transform="translate(303.11 574)"
                           fill="none"
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1.5"
                         ></path>
                         <path
                           id="Vector-2"
@@ -160,7 +160,7 @@ const MainProducts = () => {
                 <div className="products__side__box__body">
                   <div className="products__list__side__sizes">
                     {sizes.map((size) => (
-                      <button class="product__sizes__item">
+                      <button className="product__sizes__item">
                         <span>{size}</span>
                       </button>
                     ))}
@@ -170,7 +170,7 @@ const MainProducts = () => {
             </div>
 
             <div className="products__side__box">
-              <div class="products__side__box__header">
+              <div className="products__side__box__header">
                 <span>رنگ</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -192,24 +192,24 @@ const MainProducts = () => {
               <div className="products__side__box__body">
                 <div className="products__list__side__colors">
                   {colors.map((color) => (
-                    <div class="products__list__side__colors__item">
+                    <div className="products__list__side__colors__item">
                       <div
-                        class={`products__list__side__colors__item__color ${color.class}`}
+                        className={`products__list__side__colors__item__color ${color.class}`}
                       ></div>
-                      <div class="products__list__side__colors__item__name">
+                      <div className="products__list__side__colors__item__name">
                         {color.name}
                       </div>
                     </div>
                   ))}
                 </div>
-                <button class="products__list__side__colors__more">
+                <button className="products__list__side__colors__more">
                   مشاهده بیشتر <span>+</span>
                 </button>
               </div>
             </div>
 
             <div className="products__side__box">
-              <div class="products__side__box__header">
+              <div className="products__side__box__header">
                 <span data-v-39d11c8f="">قیمت</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -225,9 +225,9 @@ const MainProducts = () => {
                       transform="translate(111.602 396.86)"
                       fill="none"
                       stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
                     ></path>
                     <path
                       id="Vector-2"
@@ -236,9 +236,9 @@ const MainProducts = () => {
                       transform="translate(111.59 391.01)"
                       fill="none"
                       stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
                     ></path>
                     <path
                       id="Vector-3"
@@ -247,9 +247,9 @@ const MainProducts = () => {
                       transform="translate(111.602 391)"
                       fill="none"
                       stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
                     ></path>
                     <path
                       id="Vector-4"
@@ -258,9 +258,9 @@ const MainProducts = () => {
                       transform="translate(124.871 389.95)"
                       fill="none"
                       stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
                     ></path>
                     <path
                       id="Vector-5"
@@ -269,9 +269,9 @@ const MainProducts = () => {
                       transform="translate(110 383.5)"
                       fill="none"
                       stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
                     ></path>
                     <path
                       id="Vector-6"
@@ -286,24 +286,24 @@ const MainProducts = () => {
               </div>
               <div className="products__side__box__body">
                 <div className="products__list__side__price">
-                  <div class="vue-slider vue-slider-rtl">
-                    <div class="vue-slider-rail">
-                      <div class="vue-slider-process"></div>
-                      <div class="vue-slider-dot">
-                        <div class="vue-slider-dot-handle"></div>
+                  <div className="vue-slider vue-slider-rtl">
+                    <div className="vue-slider-rail">
+                      <div className="vue-slider-process"></div>
+                      <div className="vue-slider-dot">
+                        <div className="vue-slider-dot-handle"></div>
                       </div>
-                      <div class="vue-slider-dot">
-                        <div class="vue-slider-dot-handle"></div>
+                      <div className="vue-slider-dot">
+                        <div className="vue-slider-dot-handle"></div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="products__list__side__price__numbers">
-                    <div class="products__list__side__price__numbers__number">
+                  <div className="products__list__side__price__numbers">
+                    <div className="products__list__side__price__numbers__number">
                       0
                     </div>
                     <div data-v-1e8249f0="">تا</div>
-                    <div class="products__list__side__price__numbers__number">
+                    <div className="products__list__side__price__numbers__number">
                       ۳.۳۹۸.۰۰۰
                     </div>
                   </div>
@@ -311,16 +311,16 @@ const MainProducts = () => {
               </div>
             </div>
 
-            <div class="products__list__side__filter__button">
-              <button class="orange__button">
-                <span class="orange__button__text">انجام فیلتر</span>
+            <div className="products__list__side__filter__button">
+              <button className="orange__button">
+                <span className="orange__button__text">انجام فیلتر</span>
                 <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="23.983"
                     height="21.784"
                     viewBox="0 0 23.983 21.784"
-                    class="orange__button__icon"
+                    className="orange__button__icon"
                   >
                     <path
                       id="Icon_feather-filter"
@@ -329,9 +329,9 @@ const MainProducts = () => {
                       transform="translate(-2 -3.5)"
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                     ></path>
                   </svg>
                 </span>
@@ -343,14 +343,14 @@ const MainProducts = () => {
             <div className="products__list__main__header">
               <div className="products__list__header__sort">
                 <span>ترتیب بر اساس:</span>
-                <div class="products__list__header__sort__item">
+                <div className="products__list__header__sort__item">
                   <button>جدیدترین</button>
                   <button>پرفروش ترین</button>
                   <button>تخفیف دار</button>
                   <button>ارزان ترین</button>
                   <button>گران ترین</button>
                 </div>
-                <div class="products__list__header__sort__count">
+                <div className="products__list__header__sort__count">
                   <span>41 کالا</span>
                 </div>
               </div>
@@ -381,7 +381,7 @@ const MainProducts = () => {
                 <li className="page-item pagination-page-nav">
                   <a href="##" className="page-link">
                     <svg
-                      class="page-arrow"
+                      className="page-arrow"
                       xmlns="http://www.w3.org/2000/svg"
                       x="0px"
                       y="0px"
@@ -391,11 +391,11 @@ const MainProducts = () => {
                     >
                       <g
                         fill="none"
-                        fill-rule="nonzero"
+                        fillRule="nonzero"
                         stroke="none"
-                        stroke-width="1"
-                        stroke-linecap="butt"
-                        stroke-linejoin="miter"
+                        strokeWidth="1"
+                        strokeLinecap="butt"
+                        strokeLinejoin="miter"
                         stroke-miterlimit="10"
                         stroke-dasharray=""
                         stroke-dashoffset="0"
