@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./mainProducts.css";
 import ChildCategory from "./childCategory/ChildCategory";
 import ProductItem from "../main/product/ProductItem";
-import products from "../../data";
+import products, { MenProducts } from "../../data";
 import Breadcrumb from "../breadcrumb/Breadcrumb";
 
 const MainProducts = () => {
-  const [productsInfo, setProductsInfo] = useState(products);
+  const [productsInfo, setProductsInfo] = useState(MenProducts);
 
   const categoryTitle = ["مردانه", "زنانه", "بچگانه"];
   const categories = [
@@ -359,11 +359,7 @@ const MainProducts = () => {
             <div className="products__list__main__body__container">
               <div className="products__list__main__body">
                 {productsInfo.map((product) => (
-                  <ProductItem
-                    img={product.img}
-                    price={product.price}
-                    title={product.title}
-                  />
+                  <ProductItem product={product} />
                 ))}
               </div>
 

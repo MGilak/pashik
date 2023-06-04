@@ -8,8 +8,10 @@ import { useProduct } from "../context/SingleProductProvider";
 const SingleProduct = () => {
   const dispatch = useCartActions();
   const product = useProduct();
+
   const { img, price, title } = product;
-  const addProductHandler = (product) => {
+
+  const addProductHandler = () => {
     dispatch({ type: "ADD", payload: product });
   };
 
@@ -401,10 +403,7 @@ const SingleProduct = () => {
               </div>
             </div>
 
-            <button
-              onClick={() => addProductHandler}
-              className="orange__button"
-            >
+            <button onClick={addProductHandler} className="orange__button">
               <span className="orange__button__text">افزودن به سبد خرید</span>
               <span>
                 <svg

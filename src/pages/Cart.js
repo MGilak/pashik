@@ -4,24 +4,257 @@ import Breadcrumb from "./../components/breadcrumb/Breadcrumb";
 import Footer from "../components/footer/Footer";
 import "./cart.css";
 import { Link } from "react-router-dom";
+import { useCart, useCartActions } from "../context/CartProvider";
 
 const Cart = () => {
+  const dispatch = useCartActions();
+  const { cart } = useCart();
+
+  const incHandler = (item) => {
+    dispatch({ type: "ADD", payload: item });
+  };
+
+  const decHandler = (cartItem) => {
+    dispatch({ type: "DEC", payload: cartItem });
+  };
+
   return (
     <div className="cart_page">
       <Header />
       <Breadcrumb />
+
       <div>
         <div className="cart__top">
           <div class="cart__top__first">
             <Link>
-              <span>سبد خرید</span>
+              <div>سبد خرید</div>
             </Link>
             <Link>
-              <span>اطلاعات ارسال</span>
+              <div>اطلاعات ارسال</div>
             </Link>
             <Link>
-              <span>اطلاعات پرداخت</span>
+              <div>اطلاعات پرداخت</div>
             </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="step">
+        <div className="cart__one">
+          <div className="cart__one__table">
+            <div class="cart__one__table__header">
+              <div>سبد خریــد شما</div>
+              <div>قیمت</div>
+              <div>تعداد</div>
+              <div>قیمت نهایی</div>
+            </div>
+
+            <div className="cart__one__table__body">
+              {cart.length ? (
+                cart.map((item) => (
+                  <div className="cart__one__table__body__item">
+                    <div className="cart__one__table__body__item__detail">
+                      <a
+                        className="cart__one__table__body__item__detail__image"
+                        href="##"
+                      >
+                        <img src={item.img} alt="" />
+                      </a>
+
+                      <div class="cart__one__table__body__item__detail__delete">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18.454"
+                          height="19.373"
+                          viewBox="0 0 18.454 19.373"
+                          data-v-1e8d8000=""
+                        >
+                          <path
+                            id="Union_5"
+                            data-name="Union 5"
+                            d="M1981.5,442l-8.5,9,8.5-9-8.5-9,8.5,9,8.5-9-8.5,9,8.5,9Z"
+                            transform="translate(-1972.273 -432.313)"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-width="2"
+                          ></path>
+                        </svg>
+                      </div>
+
+                      <div class="cart__one__table__body__item__detail__info">
+                        <a
+                          href="##"
+                          class="cart__one__table__body__item__detail__info__title"
+                        >
+                          کتانی مردانه نایک ایرفورس کد 1573
+                        </a>
+                        <div class="cart__one__table__body__item__detail__info__attribute">
+                          {" "}
+                          رنگ: سورمه‌ای
+                        </div>
+                        <div class="cart__one__table__body__item__detail__info__attribute">
+                          {" "}
+                          سایز: 42
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="cart__one__table__body__item__price">
+                      <div className="product__info__price">
+                        <span
+                          dir="rtl"
+                          class="product__info__price__amount alone"
+                        >
+                          <span class="product__info__price__amount__number">
+                            ۵۴۸.۰۰۰
+                          </span>{" "}
+                          تومان{" "}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="cart__one__table__body__item__quantity">
+                      <div className="product__quantity__container">
+                        <span>تعداد:</span>
+                        <div class="product__quantity__container">
+                          <div class="product__quantity">
+                            <button
+                              onClick={() => incHandler(item)}
+                              class="product__quantity__plus"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                viewBox="0 0 14 14"
+                                data-v-7606a178=""
+                              >
+                                <g
+                                  id="Group_240"
+                                  data-name="Group 240"
+                                  transform="translate(-608.5 -648.349)"
+                                >
+                                  <line
+                                    id="Line_21"
+                                    data-name="Line 21"
+                                    x2="13"
+                                    transform="translate(609 655.349)"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-width="1"
+                                  ></line>
+                                  <line
+                                    id="Line_22"
+                                    data-name="Line 22"
+                                    x2="13"
+                                    transform="translate(615.5 648.849) rotate(90)"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-width="1"
+                                  ></line>
+                                </g>
+                              </svg>
+                            </button>
+                            <div class="product__quantity__input">
+                              {item.quantity}
+                            </div>
+                            <button
+                              onClick={() => decHandler(item)}
+                              class="product__quantity__minus"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="2"
+                                viewBox="0 0 14 1"
+                                data-v-7606a178=""
+                              >
+                                <line
+                                  id="Line_23"
+                                  data-name="Line 23"
+                                  x2="13"
+                                  transform="translate(0.5 0.5)"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-width="5"
+                                ></line>
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cart__one__table__body__item__price">
+                      {item.price} تومان{" "}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <h3 className="no_item">آیتمی جهت خرید وجود ندارد</h3>
+              )}
+
+              {cart.length ? (
+                <section className="total-price">
+                  <form action="" className="total-price-discount-btn">
+                    <input
+                      type="text"
+                      class="discount-input"
+                      placeholder="کد تخفیف را وارد کنید"
+                    />
+                    <input
+                      type="submit"
+                      class="discount-btn"
+                      value="ثبت کد تخفیف"
+                    />
+                  </form>
+
+                  <div className="total-price-detail">
+                    <div>
+                      <span class="fontsize-medium">
+                        مجموع قیمت های کالا :{" "}
+                      </span>
+                      <span>
+                        <span class="fontsize-medium">۵۴۸.۰۰۰</span>
+                        <span class="fontsize-small">تومان</span>
+                      </span>
+                    </div>
+
+                    <div>
+                      <span> تخفیف : </span>
+                      <span>
+                        <span>0</span>
+                        <span>تومان</span>
+                      </span>
+                    </div>
+
+                    <div>
+                      <span> پرداخت نهایی : </span>
+                      <span>
+                        <span>۵۴۸.۰۰۰</span>
+                        <span>تومان</span>
+                      </span>
+                    </div>
+                  </div>
+                </section>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="cart__next__prev single">
+            <div></div>
+            <div>
+              <button
+                id="cart-next-btn"
+                class={`orange__button ${!cart.length && "disable"}`}
+              >
+                ادامه فرآیند خرید
+              </button>
+            </div>
           </div>
         </div>
       </div>

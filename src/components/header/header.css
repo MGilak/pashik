@@ -5,6 +5,7 @@ header {
 }
 .header {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   padding: 22px 0;
@@ -70,6 +71,7 @@ header {
   outline: none;
   border: none;
   color: #fff;
+  cursor: pointer;
 }
 .moblie-menu-top {
   display: none;

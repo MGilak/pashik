@@ -147,11 +147,7 @@ const Main = () => {
         </div>
         <div className="products__home__products">
           {productsInfo.map((product) => (
-            <ProductItem
-              img={product.img}
-              price={product.price}
-              title={product.title}
-            />
+            <ProductItem product={product} />
           ))}
         </div>
         <div className="products__home__more">

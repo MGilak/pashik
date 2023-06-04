@@ -3,20 +3,24 @@ import "./productItem.css";
 import { Link } from "react-router-dom";
 import { useProductActions } from "./../../../context/SingleProductProvider";
 
-const ProductItem = ({ img, price, title }) => {
+const ProductItem = ({ product }) => {
   const dispatch = useProductActions();
 
   const shoeDataHandler = () => {
-    console.log("show");
-    dispatch({ type: "SHOW_PRODUCT", payload: { img, price, title } });
+    dispatch({ type: "SHOW_PRODUCT", payload: product });
   };
+
   return (
     <div className="product">
       <div className="product__image">
-        <img src={img} alt="" />
+        <img src={product.img} alt="" />
         <div className="product__fast__show">
           <div className="product__fast__show__buttons">
-            <Link to="/single-product" onClick={shoeDataHandler} className="button">
+            <Link
+              to="/single-product"
+              onClick={shoeDataHandler}
+              className="button"
+            >
               مشاهده
             </Link>
             <button className="button">
@@ -53,11 +57,13 @@ const ProductItem = ({ img, price, title }) => {
       </div>
       <div className="product__details">
         <a className="product__details__title" href="##">
-          <span>{title}</span>
+          <span>{product.title}</span>
         </a>
         <div className="product__details__price">
           <span dir="rtl" className="product__info__price__amount alone">
-            <span className="product__info__price__amount__number">{price}</span>
+            <span className="product__info__price__amount__number">
+              {product.price}
+            </span>
             تومان
           </span>
         </div>

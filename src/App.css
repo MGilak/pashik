@@ -41,6 +41,9 @@ button {
   font-size: inherit;
   font-family: inherit;
 }
+input {
+  font-family: inherit;
+}
 video {
   object-fit: contain;
   overflow-clip-margin: content-box;
@@ -327,6 +330,10 @@ video {
   color: #000;
   font-size: 1.15rem;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.orange__button:hover {
+  background-color: var(--color1hover);
 }
 .orange__button__text {
   display: inline-block;
