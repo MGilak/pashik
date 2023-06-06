@@ -1,8 +1,11 @@
 import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartProvider";
 
 const Header = () => {
+  const { cart } = useCart();
+
   return (
     <header>
       <div className="moblie-menu-top">
@@ -46,7 +49,6 @@ const Header = () => {
               width="19.722"
               height="22.811"
               viewBox="0 0 19.722 22.811"
-              data-v-eae2dd92=""
             >
               <g id="Bag" transform="translate(0)">
                 <g
@@ -238,14 +240,13 @@ const Header = () => {
             </svg>
           </button>
 
-          <button>
+          <button className="cart__icon">
             <Link to="/cart">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="19.722"
                 height="22.811"
                 viewBox="0 0 19.722 22.811"
-                data-v-eae2dd92=""
               >
                 <g id="Bag" transform="translate(0)">
                   <g
@@ -285,6 +286,9 @@ const Header = () => {
                 </g>
               </svg>
             </Link>
+            {cart.length > 0 ? (
+              <span class="cart__button__quantity">{cart.length}</span>
+            ) : null}
           </button>
 
           <button>
@@ -518,16 +522,9 @@ const Header = () => {
           </button>
         </div>
 
-        <div
-          className="mobile__menu mobile__menu__bottom__4"
-          data-v-337742d7=""
-        >
+        <div className="mobile__menu mobile__menu__bottom__4">
           <div className="whatsapp__animation">
-            <a
-              className=""
-              href="https://wa.me/+989381715198"
-              data-v-337742d7=""
-            >
+            <a href="##">
               <svg
                 width="24px"
                 height="24px"

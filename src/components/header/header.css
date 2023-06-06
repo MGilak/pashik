@@ -73,6 +73,22 @@ header {
   color: #fff;
   cursor: pointer;
 }
+.cart__icon {
+  position: relative;
+}
+.cart__button__quantity {
+  position: absolute;
+  left: -15px;
+  top: -8px;
+  color: #fff;
+  background: rgba(235, 116, 0, 0.85);
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  line-height: 1;
+  font-size: 14px;
+}
 .moblie-menu-top {
   display: none;
 }

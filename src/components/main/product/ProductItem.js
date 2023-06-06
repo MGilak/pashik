@@ -9,11 +9,12 @@ const ProductItem = ({ product }) => {
   const shoeDataHandler = () => {
     dispatch({ type: "SHOW_PRODUCT", payload: product });
   };
+  console.log(product);
 
   return (
     <div className="product">
       <div className="product__image">
-        <img src={product.img} alt="" />
+        <img src={product.images[0]} alt={product.name} />
         <div className="product__fast__show">
           <div className="product__fast__show__buttons">
             <Link

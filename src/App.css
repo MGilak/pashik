@@ -185,6 +185,11 @@ video {
   font-size: 1rem;
   margin-inline-end: 5px;
 }
+.color_name {
+  color: var(--color1);
+  margin-inline-start: 0.2rem;
+  font-size: 0.9rem;
+}
 .product__info__cats {
   color: var(--color1);
 }
@@ -248,21 +253,22 @@ video {
   flex-wrap: wrap;
   margin-top: 0.7rem;
 }
-.product__sizes__item {
+.product__sizes .product__sizes__item {
   position: relative;
   border: 1px solid white;
   padding: 5px 20px;
   vertical-align: baseline;
   border-radius: 5px;
   cursor: pointer;
+  width: auto;
 }
-.product__sizes__item > span {
+.product__sizes .product__sizes__item > span {
   height: 20px;
   display: block;
   white-space: nowrap;
 }
-.product__sizes__item:not([disabled]):hover,
-.product__sizes__item:not([disabled]).selected {
+.product__sizes__item:hover,
+.product__sizes__item.selected {
   color: #000;
   font-weight: 700;
   background-color: #ededed;
@@ -370,4 +376,145 @@ video {
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* side cart */
+.side__cart {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  width: 350px;
+  left: 0;
+  top: 0;
+  background: rgba(128, 128, 128, 0.65);
+  border-radius: 0 10px 10px 0;
+  backdrop-filter: blur(17px);
+  padding: 1.3rem 0.5rem 0.2rem;
+  transform: translate(-350px);
+  transition: all 0.4s ease-in-out;
+}
+.side__cart.open {
+  z-index: 100;
+  opacity: 1;
+  transform: translate(0);
+}
+.side__cart__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  align-items: center;
+}
+.side__cart__header__close {
+  cursor: pointer;
+}
+.side__cart__items__container {
+  flex-grow: 1;
+  overflow: auto;
+  margin-left: -5px;
+  padding: 0 0.7rem;
+}
+.side__cart__items {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0 0.2rem;
+}
+.side__cart__item {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+  background-image: url(https://api-pashik.cheshbaste.com/storage/88c54e96-4700-4e4d-bc63-0bf7ef41bb22/variety-34758.jpg);
+  max-height: 161px;
+}
+.side__cart__item__top {
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.471);
+  border-radius: 10px 10px 0 0;
+}
+.side__cart__item__top__info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background: transparent;
+}
+.side__cart__select__quantity {
+  display: flex;
+  gap: 0.3rem;
+}
+.side__cart__select__quantity button {
+  border-radius: 2px;
+  padding: 0.2rem;
+  background: rgba(128, 128, 128, 0.46);
+  display: flex;
+  align-items: center;
+}
+.side__cart__item__bottom {
+  display: flex;
+  justify-content: center;
+  padding: 0.7rem;
+  gap: 2rem;
+  background: rgba(235, 116, 0, 0.78);
+  border-radius: 0 0 10px 10px;
+  position: relative;
+}
+.side__cart__item__price__unit {
+  margin-right: -0.8rem;
+}
+.side__cart__item__bottom__delete {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+.side__cart__item__bottom__delete button {
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  padding: 0.3rem;
+  border: 1px solid white;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.side__cart__item__bottom__delete button svg {
+  width: 12px;
+  height: 12px;
+}
+.side__cart__buttons {
+  background: rgba(0, 0, 0, 0.43);
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 0.4rem;
+  font-size: 1.15rem;
+}
+.side__cart__buttons__price {
+  display: flex;
+  padding: 0.7rem 1rem;
+}
+.side__cart__buttons__price__total {
+  margin-right: 1rem;
+  margin-left: 0.3rem;
+}
+.side__cart__buttons__cart {
+  width: 100%;
+  padding: 0.8rem 0;
+  background: black;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.2s all;
+}
+/* Toastify */
+.Toastify__toast {
+  font-family: "vazir" !important;
+  text-align: right;
+  font-size: 14px !important;
+  direction: rtl !important;
 }

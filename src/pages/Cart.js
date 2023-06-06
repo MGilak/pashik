@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/header/Header";
 import Breadcrumb from "./../components/breadcrumb/Breadcrumb";
 import Footer from "../components/footer/Footer";
@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import { useCart, useCartActions } from "../context/CartProvider";
 
 const Cart = () => {
+  const [item, setItem] = useState();
+  const [modal, setModal] = useState(false);
+
   const dispatch = useCartActions();
   const { cart } = useCart();
 
@@ -16,6 +19,23 @@ const Cart = () => {
 
   const decHandler = (cartItem) => {
     dispatch({ type: "DEC", payload: cartItem });
+  };
+
+  const deletHandler = (cartItem) => {
+    dispatch({ type: "REMOVE", payload: cartItem });
+    setModal(false);
+  };
+
+  const showModal = (itemCart) => {
+    setModal(true);
+    setItem(itemCart);
+  };
+
+  const totalPrice = () => {
+    let total = cart.reduce((sum, obj) => {
+      return sum + obj.price * obj.quantity;
+    }, 0);
+    return +total;
   };
 
   return (
@@ -58,10 +78,13 @@ const Cart = () => {
                         className="cart__one__table__body__item__detail__image"
                         href="##"
                       >
-                        <img src={item.img} alt="" />
+                        <img src={cart ? item.images[0] : ""} alt="" />
                       </a>
 
-                      <div class="cart__one__table__body__item__detail__delete">
+                      <div
+                        onClick={() => showModal(item)}
+                        class="cart__one__table__body__item__detail__delete"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="18.454"
@@ -107,7 +130,7 @@ const Cart = () => {
                           class="product__info__price__amount alone"
                         >
                           <span class="product__info__price__amount__number">
-                            ۵۴۸.۰۰۰
+                            {item.price}
                           </span>{" "}
                           تومان{" "}
                         </span>
@@ -219,8 +242,8 @@ const Cart = () => {
                         مجموع قیمت های کالا :{" "}
                       </span>
                       <span>
-                        <span class="fontsize-medium">۵۴۸.۰۰۰</span>
-                        <span class="fontsize-small">تومان</span>
+                        <span class="fontsize-medium">{totalPrice()}</span>
+                        <span class="fontsize-small"> تومان</span>
                       </span>
                     </div>
 
@@ -235,8 +258,8 @@ const Cart = () => {
                     <div>
                       <span> پرداخت نهایی : </span>
                       <span>
-                        <span>۵۴۸.۰۰۰</span>
-                        <span>تومان</span>
+                        <span>{totalPrice()}</span>
+                        <span> تومان</span>
                       </span>
                     </div>
                   </div>
@@ -258,6 +281,38 @@ const Cart = () => {
           </div>
         </div>
       </div>
+
+      <div className={`swal-overlay ${modal && "swal-overlay--show-modal"}`}>
+        <div className="swal-modal">
+          <div className="swal-icon swal-icon--warning">
+            <span className="swal-icon--warning__body">
+              <span className="swal-icon--warning__dot"></span>
+            </span>
+          </div>
+
+          <div className="swal-title">محصول از سبد خرید حذف شود؟</div>
+
+          <div className="swal-footer">
+            <div class="swal-button-container">
+              <button
+                onClick={() => deletHandler(item)}
+                class="swal-button swal-button--ok"
+              >
+                بله
+              </button>
+            </div>
+            <div class="swal-button-container">
+              <button
+                onClick={() => setModal(false)}
+                class="swal-button swal-button--catch"
+              >
+                خیر
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <Footer />
     </div>
   );

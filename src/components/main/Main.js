@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ProductItem from "./product/ProductItem";
 import BrandsSlider from "./../slider/brands/BrandsSlider";
 import Footer from "../footer/Footer";
-import products from "./../../data";
+import products, { MenProducts } from "./../../data";
 import Slider from "../slider/Slider";
 import "./main.css";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Main = () => {
   const [activePoint, setActivePoint] = useState(0);
   const [opacity, setOpacity] = useState(false);
-  const [productsInfo, setProductsInfo] = useState(products);
+  const [productsInfo, setProductsInfo] = useState(MenProducts);
 
   const detailTitleShoe = [
     "کتانی زنانه زارا کاپشنی کد 1342",
