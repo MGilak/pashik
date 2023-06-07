@@ -14,7 +14,10 @@ const ProductItem = ({ product }) => {
   return (
     <div className="product">
       <div className="product__image">
-        <img src={product.images[0]} alt={product.name} />
+        <img
+          src={product.images[0] ? product.images[0] : ""}
+          alt={product.name}
+        />
         <div className="product__fast__show">
           <div className="product__fast__show__buttons">
             <Link

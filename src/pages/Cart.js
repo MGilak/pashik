@@ -41,7 +41,12 @@ const Cart = () => {
   return (
     <div className="cart_page">
       <Header />
-      <Breadcrumb />
+      <Breadcrumb
+        links={[
+          { id: 1, to: "/", title: "فروشگاه پاشیک" },
+          { id: 2, to: "/all-products", title: "همه محصولات" },
+        ]}
+      />
 
       <div>
         <div className="cart__top">

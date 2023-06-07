@@ -32,12 +32,12 @@ const SingleProduct = () => {
     };
 
     if (sizeColor.color && sizeColor.size) {
-      // toast.success("محصول با موفقیت به سبد خرید اضافه شد.");
+      toast.success("محصول با موفقیت به سبد خرید اضافه شد.");
       dispatch({ type: "ADD", payload: newProduct });
 
       setOpenSide(true);
     } else {
-      // toast.warning("لطفاً رنگ و سایز محصول را انتخاب کنید.");
+      toast.warning("لطفاً رنگ و سایز محصول را انتخاب کنید.");
     }
   };
 
@@ -57,42 +57,15 @@ const SingleProduct = () => {
   return (
     <div>
       <Header />
-      <Breadcrumb />
+      <Breadcrumb
+        links={[
+          { id: 1, to: "/", title: "فروشگاه پاشیک" },
+          { id: 2, to: "/all-products", title: "همه محصولات" },
+          { id: 3, to: "/single-product", title: product.title },
+        ]}
+      />
       <div className="product__content">
         <div className="product__gallery">
-          {/* <div className="product__gallery__images">
-            <div className="active product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-            <div className="product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-            <div className="product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-            <div className="product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-            <div className="product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-            <div className="product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-            <div className="product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-            <div className="product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-            <div className="product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-            <div className="product__gallery__images__item">
-              <img src="./images/one/variety-32793.jpg" alt="shoes" />
-            </div>
-          </div> */}
-
           <div className="product__gallery__main__image">
             <button className="product__gallery__main__image__icon favorite">
               <svg
@@ -171,8 +144,6 @@ const SingleProduct = () => {
             <img src={images[colorIndex]} alt="" />
           </div>
         </div>
-
-        {/* <div className="silentbox-gallery"></div> */}
 
         <div className="product__info">
           <div className="product__info__1">
@@ -453,91 +424,7 @@ const SingleProduct = () => {
             </button>
           </div>
 
-          <div className="product__info__5">
-            {/* <div className="product__specification">
-              <div className="collapse-btn">
-                <div data-v-1fbf8fe8="">ویژگی های محصول</div>
-                <button className="collapsed">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    data-v-1fbf8fe8=""
-                  >
-                    <g
-                      id="Group_240"
-                      data-name="Group 240"
-                      transform="translate(-608.5 -648.349)"
-                    >
-                      <line
-                        id="Line_21"
-                        data-name="Line 21"
-                        x2="13"
-                        transform="translate(609 655.349)"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeWidth="1"
-                      ></line>
-                      <line
-                        id="Line_22"
-                        data-name="Line 22"
-                        x2="13"
-                        transform="translate(615.5 648.849) rotate(90)"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeWidth="1"
-                      ></line>
-                    </g>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="2"
-                    viewBox="0 0 14 1"
-                    data-v-1fbf8fe8=""
-                  >
-                    <line
-                      id="Line_23"
-                      data-name="Line 23"
-                      x2="13"
-                      transform="translate(0.5 0.5)"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeWidth="5"
-                    ></line>
-                  </svg>
-                </button>
-              </div>
-
-              <div className="collapse show" id="collapse-specification">
-                <table>
-                  <tbody>
-                    <tr>
-                      <th scope="row">مناسب فصل</th>
-                      <td>
-                        <span>تمام فصول </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">ویژه</th>
-                      <td>ایران</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">جنسیت</th>
-                      <td>
-                        <span>مردانه -</span>
-                        <span>پسرانه </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div> */}
-          </div>
+          <div className="product__info__5"></div>
         </div>
       </div>
 
