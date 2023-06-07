@@ -1,0 +1,12 @@
+.main {
+  position: relative;
+}
+.popup__button__triangle {
+  background-color: var(--color1);
+  position: absolute;
+  left: -91px;
+  top: -91px;
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: 100;
+}

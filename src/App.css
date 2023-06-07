@@ -413,11 +413,7 @@ video {
   overflow: auto;
   margin-left: -5px;
   padding: 0 0.7rem;
-}
-.side__cart__items {
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem 0 0.2rem;
+  padding-top: 20px;
 }
 .side__cart__item {
   display: flex;
@@ -443,6 +439,9 @@ video {
   justify-content: space-between;
   flex-wrap: nowrap;
   background: transparent;
+}
+.side__cart__item__top__info div {
+  font-size: 14px;
 }
 .side__cart__select__quantity {
   display: flex;

@@ -13,8 +13,8 @@ const Cart = () => {
   const dispatch = useCartActions();
   const { cart } = useCart();
 
-  const incHandler = (item) => {
-    dispatch({ type: "ADD", payload: item });
+  const incHandler = (cartItem) => {
+    dispatch({ type: "ADD", payload: cartItem });
   };
 
   const decHandler = (cartItem) => {
@@ -114,11 +114,11 @@ const Cart = () => {
                         </a>
                         <div class="cart__one__table__body__item__detail__info__attribute">
                           {" "}
-                          رنگ: سورمه‌ای
+                          رنگ: {item.colors}
                         </div>
                         <div class="cart__one__table__body__item__detail__info__attribute">
                           {" "}
-                          سایز: 42
+                          سایز: {item.sizes}
                         </div>
                       </div>
                     </div>

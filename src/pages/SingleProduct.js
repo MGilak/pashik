@@ -12,7 +12,9 @@ const SingleProduct = () => {
   const { cart } = useCart();
   const product = useProduct();
 
+  const [openSide, setOpenSide] = useState(false);
   const [colorIndex, setColorIndex] = useState(0);
+  const [sizeIndex, setSizeIndex] = useState(0);
   const [colorHover, setColorHover] = useState();
   const [sizeColor, setSizeColor] = useState({
     color: false,
@@ -23,12 +25,33 @@ const SingleProduct = () => {
   const { images, price, sizes } = product;
 
   const addProductHandler = () => {
+    const newProduct = {
+      ...product,
+      colors: product.colors[colorIndex],
+      sizes: product.sizes[sizeIndex],
+    };
+
     if (sizeColor.color && sizeColor.size) {
-      dispatch({ type: "ADD", payload: product });
-      toast.success("محصول با موفقیت به سبد خرید اضافه شد.");
+      // toast.success("محصول با موفقیت به سبد خرید اضافه شد.");
+      dispatch({ type: "ADD", payload: newProduct });
+
+      setOpenSide(true);
     } else {
-      toast.warning("لطفاً رنگ و سایز محصول را انتخاب کنید.");
+      // toast.warning("لطفاً رنگ و سایز محصول را انتخاب کنید.");
     }
+  };
+
+  const incHandler = (cartItem) => {
+    dispatch({ type: "ADD", payload: cartItem });
+  };
+
+  const decHandler = (cartItem) => {
+    dispatch({ type: "DEC", payload: cartItem });
+  };
+
+  const removeHandler = (cartItem) => {
+    dispatch({ type: "REMOVE", payload: cartItem });
+    setOpenSide(false);
   };
 
   return (
@@ -153,9 +176,7 @@ const SingleProduct = () => {
 
         <div className="product__info">
           <div className="product__info__1">
-            <h2 className="product__info__title">
-              کتانی کف‌تخت نایک sb کد 6124
-            </h2>
+            <h2 className="product__info__title">{product.title}</h2>
             <span className="product__info__code">
               <div>
                 <span className="ms-1">کد محصول:</span> 1613
@@ -265,10 +286,7 @@ const SingleProduct = () => {
             <div className="sub__title mb-sm-4 mb-2">
               <span className="sub__title__name">دسته:</span>
               <span className="product__info__cats">
-                <span>
-                  کتانی و ورزشی مردانه <span>, </span>
-                </span>
-                <span>روزمره و کالج مردانه </span>
+                <span>{product.grouping}</span>
               </span>
             </div>
 
@@ -318,9 +336,10 @@ const SingleProduct = () => {
               </div>
 
               <div className="product__sizes">
-                {sizes.map((size) => (
+                {sizes.map((size, index) => (
                   <button
                     onClick={() => {
+                      setSizeIndex(index);
                       setSizeColor((prev) => ({
                         ...prev,
                         size: true,
@@ -522,7 +541,8 @@ const SingleProduct = () => {
         </div>
       </div>
 
-      <div className="side__cart open">
+      {/* side cart */}
+      <div className={`side__cart ${openSide && "open"}`}>
         <div className="side__cart__header">
           <span>
             <svg
@@ -553,7 +573,10 @@ const SingleProduct = () => {
             {cart.length} مورد
           </span>
 
-          <span class="side__cart__header__close">
+          <span
+            onClick={() => setOpenSide(false)}
+            class="side__cart__header__close"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18.454"
@@ -577,109 +600,111 @@ const SingleProduct = () => {
 
         <div className="side__cart__items__container">
           <div className="side__cart__items">
-            <div className="side__cart__item">
-              <div className="side__cart__item__top">
-                <a href="##" class="side__cart__item__top__title">
-                  کتانی مردانه نایک ایرفورس کد 1573
-                </a>
+            {cart.map((item) => (
+              <div className={`side__cart__item ${openSide && "showCartItem"}`}>
+                <div className="side__cart__item__top">
+                  <a href="##" class="side__cart__item__top__title">
+                    {item ? item.title : ""}
+                  </a>
 
-                <div class="side__cart__item__top__info">
-                  <div>رنگ: سورمه ای</div>
-                  <div>سایز: 42</div>
-                  <div class="side__cart__item__top__quantity">
-                    <div class="side__cart__select__quantity">
-                      <button>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          data-v-1245df43=""
-                        >
-                          <g
-                            id="Group_240"
-                            data-name="Group 240"
-                            transform="translate(-608.5 -648.349)"
+                  <div class="side__cart__item__top__info">
+                    <div>رنگ: {item.colors}</div>
+                    <div>سایز: {item.sizes}</div>
+                    <div class="side__cart__item__top__quantity">
+                      <div class="side__cart__select__quantity">
+                        <button onClick={() => incHandler(item)}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            data-v-1245df43=""
+                          >
+                            <g
+                              id="Group_240"
+                              data-name="Group 240"
+                              transform="translate(-608.5 -648.349)"
+                            >
+                              <line
+                                id="Line_21"
+                                data-name="Line 21"
+                                x2="13"
+                                transform="translate(609 655.349)"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-width="1"
+                              ></line>
+                              <line
+                                id="Line_22"
+                                data-name="Line 22"
+                                x2="13"
+                                transform="translate(615.5 648.849) rotate(90)"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-width="1"
+                              ></line>
+                            </g>
+                          </svg>
+                        </button>
+                        <span>{item ? item.quantity : 0}</span>
+                        <button onClick={() => decHandler(item)}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="1"
+                            viewBox="0 0 14 1"
+                            data-v-1245df43=""
                           >
                             <line
-                              id="Line_21"
-                              data-name="Line 21"
+                              id="Line_23"
+                              data-name="Line 23"
                               x2="13"
-                              transform="translate(609 655.349)"
+                              transform="translate(0.5 0.5)"
                               fill="none"
                               stroke="currentColor"
                               stroke-linecap="round"
-                              stroke-width="1"
+                              stroke-width="5"
                             ></line>
-                            <line
-                              id="Line_22"
-                              data-name="Line 22"
-                              x2="13"
-                              transform="translate(615.5 648.849) rotate(90)"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-width="1"
-                            ></line>
-                          </g>
-                        </svg>
-                      </button>
-                      <span>1</span>
-                      <button>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="14"
-                          height="1"
-                          viewBox="0 0 14 1"
-                          data-v-1245df43=""
-                        >
-                          <line
-                            id="Line_23"
-                            data-name="Line 23"
-                            x2="13"
-                            transform="translate(0.5 0.5)"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-width="5"
-                          ></line>
-                        </svg>
-                      </button>
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="side__cart__item__bottom">
-                <span class="side__cart__item__price__tag">قیمت:</span>
-                <span class="side__cart__item__price__amount">
-                  <span>۵۴۸.۰۰۰</span>
-                </span>
-                <span class="side__cart__item__price__unit">تومان</span>
-                <span class="side__cart__item__bottom__delete">
-                  <button title="حذف از سبد خرید">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18.454"
-                      height="19.373"
-                      viewBox="0 0 18.454 19.373"
-                      data-v-3453411e=""
-                    >
-                      <path
-                        id="Union_5"
-                        data-name="Union 5"
-                        d="M1981.5,442l-8.5,9,8.5-9-8.5-9,8.5,9,8.5-9-8.5,9,8.5,9Z"
-                        transform="translate(-1972.273 -432.313)"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-width="2"
-                      ></path>
-                    </svg>
-                  </button>
-                </span>
+                <div className="side__cart__item__bottom">
+                  <span class="side__cart__item__price__tag">قیمت:</span>
+                  <span class="side__cart__item__price__amount">
+                    <span>{item ? item.price * item.quantity : ""}</span>
+                  </span>
+                  <span class="side__cart__item__price__unit">تومان</span>
+                  <span class="side__cart__item__bottom__delete">
+                    <button onClick={() => removeHandler(item)}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18.454"
+                        height="19.373"
+                        viewBox="0 0 18.454 19.373"
+                        data-v-3453411e=""
+                      >
+                        <path
+                          id="Union_5"
+                          data-name="Union 5"
+                          d="M1981.5,442l-8.5,9,8.5-9-8.5-9,8.5,9,8.5-9-8.5,9,8.5,9Z"
+                          transform="translate(-1972.273 -432.313)"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-width="2"
+                        ></path>
+                      </svg>
+                    </button>
+                  </span>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
