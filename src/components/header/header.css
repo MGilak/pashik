@@ -26,6 +26,10 @@ header {
   font-size: 18px;
   padding: 0.8rem 0.8rem 0.5rem;
 }
+.header .navbar__header li > span {
+  display: flex;
+  align-items: center;
+}
 .navbar__header__corner {
   position: absolute;
   left: 82%;
@@ -71,7 +75,7 @@ header {
 .navbar__sub.active {
   margin-top: 10px;
   display: block;
-  animation: showSub 1s ease 1;
+  animation: showSub 0.4s ease 1;
 }
 @keyframes showSub {
   0% {
@@ -108,7 +112,7 @@ header {
   background-color: #000;
   position: absolute;
   left: 50%;
-  transition: 1s all;
+  transition: 0.4s all;
 }
 .line-1 {
   top: 30%;
@@ -294,7 +298,7 @@ header .bottom-left {
   display: flex;
   justify-content: right;
   transform: translate(-800px);
-  transition: all 1s ease-in-out;
+  transition: all 0.4s ease-in-out;
   transition-delay: 0.3s;
 }
 .navigation__popup.open nav ul li {

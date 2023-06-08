@@ -44,7 +44,7 @@ const Cart = () => {
       <Breadcrumb
         links={[
           { id: 1, to: "/", title: "فروشگاه پاشیک" },
-          { id: 2, to: "/all-products", title: "همه محصولات" },
+          { id: 2, to: "/all-products/1", title: "همه محصولات" },
         ]}
       />
 

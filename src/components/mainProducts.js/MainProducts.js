@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import "./mainProducts.css";
 import ChildCategory from "./childCategory/ChildCategory";
 import ProductItem from "../main/product/ProductItem";
-import products, { MenProducts } from "../../data";
 import Breadcrumb from "../breadcrumb/Breadcrumb";
+import Pagination from "./../pagination/Pagination";
+import { MenProducts } from "./../../data";
 
 const MainProducts = () => {
-  const [productsInfo, setProductsInfo] = useState(MenProducts);
+  const [productsInfo, setProductsInfo] = useState();
+  const [shownCourses, setShownCourses] = useState([]);
+
+  // console.log(MenProducts);
 
   const categoryTitle = ["مردانه", "زنانه", "بچگانه"];
   const categories = [
@@ -42,7 +46,7 @@ const MainProducts = () => {
       <Breadcrumb
         links={[
           { id: 1, to: "/", title: "فروشگاه پاشیک" },
-          { id: 2, to: "/all-products", title: "همه محصولات" },
+          { id: 2, to: "/all-products/:id", title: "همه محصولات" },
         ]}
       />
 
@@ -363,57 +367,17 @@ const MainProducts = () => {
 
             <div className="products__list__main__body__container">
               <div className="products__list__main__body">
-                {productsInfo.map((product) => (
+                {shownCourses.map((product) => (
                   <ProductItem product={product} />
                 ))}
               </div>
 
-              <ul className="pagination">
-                <li className="page-item pagination-page-nav active">
-                  <a href="##" className="page-link">
-                    1
-                  </a>
-                </li>
-                <li className="page-item pagination-page-nav">
-                  <a href="##" className="page-link">
-                    2
-                  </a>
-                </li>
-                <li className="page-item pagination-page-nav">
-                  <a href="##" className="page-link">
-                    <svg
-                      className="page-arrow"
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 226 226"
-                    >
-                      <g
-                        fill="none"
-                        fillRule="nonzero"
-                        stroke="none"
-                        strokeWidth="1"
-                        strokeLinecap="butt"
-                        strokeLinejoin="miter"
-                        stroke-miterlimit="10"
-                        stroke-dasharray=""
-                        stroke-dashoffset="0"
-                        font-family="none"
-                        font-weight="none"
-                        font-size="none"
-                        text-anchor="none"
-                      >
-                        <path d="M0,226v-226h226v226z" fill="none"></path>
-                        <g fill="#b2b2b2">
-                          <path d="M143.19219,56.32344c-2.11875,-2.11875 -5.47344,-2.11875 -7.41563,0l-52.96875,52.96875c-2.11875,2.11875 -2.11875,5.47344 0,7.41562l52.96875,52.96875c1.05937,1.05937 2.47188,1.58906 3.70781,1.58906c1.23594,0 2.64844,-0.52969 3.70781,-1.58906c2.11875,-2.11875 2.11875,-5.47344 0,-7.41563l-49.26094,-49.26094l49.26094,-49.26094c2.11875,-2.11875 2.11875,-5.29687 0,-7.41563z"></path>
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
+              <Pagination
+                items={MenProducts}
+                itemsCount={12}
+                pathname="/all-products"
+                setShownCourses={setShownCourses}
+              />
             </div>
           </div>
         </div>

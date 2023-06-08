@@ -5,7 +5,7 @@ import Cart from "./pages/Cart";
 
 const routes = [
   { path: "/", element: <MainPage /> },
-  { path: "/all-products", element: <AllProducts /> },
+  { path: "/all-products/:page", element: <AllProducts /> },
   { path: "/single-product", element: <SingleProduct /> },
   { path: "/cart", element: <Cart /> },
 ];

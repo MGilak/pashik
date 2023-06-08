@@ -60,7 +60,7 @@ const SingleProduct = () => {
       <Breadcrumb
         links={[
           { id: 1, to: "/", title: "فروشگاه پاشیک" },
-          { id: 2, to: "/all-products", title: "همه محصولات" },
+          { id: 2, to: "/all-products/1", title: "همه محصولات" },
           { id: 3, to: "/single-product", title: product.title },
         ]}
       />

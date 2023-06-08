@@ -9,7 +9,6 @@ const ProductItem = ({ product }) => {
   const shoeDataHandler = () => {
     dispatch({ type: "SHOW_PRODUCT", payload: product });
   };
-  console.log(product);
 
   return (
     <div className="product">

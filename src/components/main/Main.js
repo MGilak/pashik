@@ -116,7 +116,7 @@ const Main = () => {
         <a className="firstRow" href="##">
           <img src="./images/Group-256.png" alt="" />
         </a>
-        <Link to="/all-products" className="firstRow">
+        <Link to="/all-products/1" className="firstRow">
           <img src="./images/Group-255 (1).png" alt="" />
         </Link>
         <a className="firstRow" href="##">
