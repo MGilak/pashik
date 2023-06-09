@@ -42,3 +42,16 @@
 .slide .product__details__title {
   font-size: 0.9rem;
 }
+
+/********************************************************************/
+/* responsive */
+@media only screen and (max-width: 1080px) {
+  .slide {
+    flex-shrink: 0;
+    width: 220px !important;
+    height: 83% !important;
+  }
+  .slide .product__image {
+    max-height: 70%;
+  }
+}

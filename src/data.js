@@ -241,7 +241,7 @@ export const MenProducts = [
   {
     id: 12,
     title: "کتانی مردانه سالامون جورابی کد 1552",
-    category: "جدیدترین",
+    category: "تخفیف‌دار",
     price: 598000,
     images: ["../../images/men/12/12.jpg"],
     img: "../../images/men/12/12.jpg",
@@ -255,7 +255,7 @@ export const MenProducts = [
   {
     id: 13,
     title: "کتانی مردانه امو جورابی کد 1551",
-    category: "جدیدترین",
+    category: "تخفیف‌دار",
     price: 528000,
     images: ["../../images/men/13/13.jpg"],
     img: "../../images/men/13/13.jpg",
@@ -269,7 +269,7 @@ export const MenProducts = [
   {
     id: 14,
     title: "کتانی مردانه برشکا لژدار کد 1550",
-    category: "جدیدترین",
+    category: "تخفیف‌دار",
     price: 688000,
     images: ["../../images/men/14/14.jpg"],
     img: "../../images/men/14/14.jpg",
@@ -283,7 +283,7 @@ export const MenProducts = [
   {
     id: 15,
     title: "کتانی مردانه ادیداس FANTESY کد 1547",
-    category: "جدیدترین",
+    category: "تخفیف‌دار",
     price: 628000,
     images: ["../../images/men/15/15.jpg"],
     img: "../../images/men/15/15.jpg",
@@ -297,7 +297,7 @@ export const MenProducts = [
   {
     id: 16,
     title: "کتانی مردانه KMH کد 1541",
-    category: "جدیدترین",
+    category: "پرفروش‌ترین",
     price: 1198000,
     images: ["../../images/men/16/16.jpg"],
     img: "../../images/men/16/16.jpg",
@@ -311,7 +311,7 @@ export const MenProducts = [
   {
     id: 17,
     title: "کتانی ونس مردانه پرچمی کد 1535",
-    category: "جدیدترین",
+    category: "پرفروش‌ترین",
     price: 898000,
     images: ["../../images/men/17/17.jpg"],
     img: "../../images/men/17/17.jpg",
@@ -325,7 +325,7 @@ export const MenProducts = [
   {
     id: 18,
     title: "کتانی ونس مردانه کد 1524",
-    category: "جدیدترین",
+    category: "پرفروش‌ترین",
     price: 898000,
     images: ["../../images/men/18/18.jpg"],
     img: "../../images/men/18/18.jpg",
@@ -353,7 +353,7 @@ export const MenProducts = [
   {
     id: 20,
     title: "کتانی ونس مردانه Ashoes کد 1516",
-    category: "جدیدترین",
+    category: "پرفروش‌ترین",
     price: 1198000,
     images: ["../../images/men/20/20.jpg"],
     img: "../../images/men/20/20.jpg",
@@ -367,7 +367,7 @@ export const MenProducts = [
   {
     id: 21,
     title: "کتانی ونس لژدار کد 1513",
-    category: "جدیدترین",
+    category: "پرفروش‌ترین",
     price: 8980002,
     images: ["../../images/men/21/21.jpg"],
     img: "../../images/men/21/21.jpg",

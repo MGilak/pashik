@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./mainProducts.css";
 import ChildCategory from "./childCategory/ChildCategory";
 import ProductItem from "../main/product/ProductItem";
@@ -10,7 +10,10 @@ const MainProducts = () => {
   const [productsInfo, setProductsInfo] = useState();
   const [shownCourses, setShownCourses] = useState([]);
 
-  // console.log(MenProducts);
+  const scrollRef = useRef();
+  useEffect(() => {
+    scrollRef.current.scrollTop = 0;
+  }, []);
 
   const categoryTitle = ["مردانه", "زنانه", "بچگانه"];
   const categories = [
@@ -42,7 +45,7 @@ const MainProducts = () => {
   ];
 
   return (
-    <div className="mainProducts">
+    <div ref={scrollRef} className="mainProducts">
       <Breadcrumb
         links={[
           { id: 1, to: "/", title: "فروشگاه پاشیک" },

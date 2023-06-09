@@ -65,7 +65,6 @@
 .price-info {
   color: #eb7400;
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   font-size: 1.6rem;
 }
@@ -184,13 +183,6 @@
   border-radius: 5px;
 }
 
-/* responsive */
-@media only screen and (max-width: 1300px) {
-  .show-info {
-    left: -33%;
-  }
-}
-
 /* triple */
 .triple {
   background-image: url(../../../public/images/main-bg.jpg);
@@ -225,10 +217,21 @@ a.secondRow {
   justify-content: center;
 }
 .products__home__buttons button {
-  margin-left: 20px;
+  padding: 2px 41px;
+  margin: 0 25px;
   cursor: pointer;
-  opacity: 0.4;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  border: 1px solid;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+.products__home__buttons button:hover {
+  color: #000;
+  background-color: #fff;
+}
+.products__home__buttons button.active {
+  color: #000;
+  background-color: #fff;
 }
 .products__home__products {
   display: grid;
@@ -241,15 +244,17 @@ a.secondRow {
   text-align: center;
   width: 100%;
 }
-.products__home__more a {
+.products__home__more > div {
   background: transparent;
   position: relative;
   font-size: 1rem;
   padding: 0.6rem 0.9rem;
   color: #c7c7c7;
+  display: inline;
+  cursor: pointer;
 }
 .products__slider__info__bottom a::before,
-.products__home__more a::before {
+.products__home__more > div::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -262,7 +267,7 @@ a.secondRow {
   transition: 0.3s all;
 }
 .products__slider__info__bottom a:hover::before,
-.products__home__more a:hover:before {
+.products__home__more > div:hover:before {
   bottom: 0;
   height: 100%;
   width: 100%;
@@ -331,7 +336,6 @@ a.secondRow {
 .banners__home {
   background-image: url(../../../public/images/main-bg.jpg);
   display: flex;
-  flex-direction: row-reverse;
   gap: 1rem;
 }
 .banners__home img {
@@ -384,4 +388,126 @@ a.secondRow {
   background: url(../../../public/images/brands/brands.60fb656e.png) no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+/******************************************************************/
+/* responsive */
+@media only screen and (max-width: 1300px) {
+  .show-info {
+    left: -33%;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .main-head {
+    margin-bottom: 100px;
+  }
+  .orange-circle {
+    width: 500px;
+    height: 500px;
+  }
+  .line_slider,
+  .top__slider__dots,
+  .show-info .line,
+  .show-info .detail {
+    display: none;
+  }
+  .top__slider__title {
+    right: 27%;
+    top: 104%;
+    transform: translateY(10%);
+    z-index: 2;
+    height: 7%;
+    font-size: 1.1rem;
+    color: #e5e5e5;
+    pointer-events: none;
+  }
+  .show-info {
+    position: absolute;
+    bottom: -22%;
+    left: 32%;
+  }
+  .triple {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .triple a {
+    width: 100% !important;
+  }
+  .products__slider__info {
+    display: none;
+  }
+  .products__slider {
+    background-image: none;
+  }
+  .products__home {
+    padding: 7rem 1rem 5rem;
+  }
+  .products__home__products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1.7rem;
+    gap: 1rem;
+  }
+  .banners__home {
+    padding: 0 1rem;
+  }
+  .banners__home__right {
+    display: none;
+  }
+  .banners__home__left {
+    width: 100%;
+  }
+  .banners__home__banner__item:last-child {
+    display: flex;
+    justify-content: left;
+  }
+  .banners__home__banner__item:nth-child(2) {
+    transform: translateX(-6%);
+  }
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer > * {
+    padding-top: 30px;
+  }
+  .footer__title {
+    margin-bottom: 0;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .show-info {
+    bottom: -32%;
+  }
+  .top__slider__title {
+    right: 13%;
+  }
+  .price-info .price-number {
+    font-size: 25px;
+  }
+  .price-info {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .orange-circle {
+    width: 400px;
+    height: 400px;
+  }
+  .products__home__buttons button {
+    padding: 2px 21px;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .orange-circle {
+    width: 300px;
+    height: 300px;
+  }
 }

@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import ProductItem from "./product/ProductItem";
 import BrandsSlider from "./../slider/brands/BrandsSlider";
 import Footer from "../footer/Footer";
-import products, { MenProducts } from "./../../data";
+import { MenProducts } from "./../../data";
 import Slider from "../slider/Slider";
+import Sliderr from "./../slider/Sliderr";
 import "./main.css";
 import { Link } from "react-router-dom";
 
@@ -11,6 +12,25 @@ const Main = () => {
   const [activePoint, setActivePoint] = useState(0);
   const [opacity, setOpacity] = useState(false);
   const [productsInfo, setProductsInfo] = useState(MenProducts);
+  const [activeCat, setActiveCat] = useState(null);
+  const [breakpoint, setBreakpoint] = useState(0);
+
+  const handleResize = () => {
+    const width = window.innerWidth;
+    if (width < 1080) {
+      setBreakpoint(1080);
+    } else if (width >= 1080) {
+      setBreakpoint(0);
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const detailTitleShoe = [
     "کتانی زنانه زارا کاپشنی کد 1342",
@@ -48,10 +68,12 @@ const Main = () => {
   }, [opacity]);
 
   const filterProducts = (category) => {
-    const newProducts = products.filter(
+    const newProducts = MenProducts.filter(
       (product) => product.category === category
     );
     setProductsInfo(newProducts);
+
+    setActiveCat(category);
   };
 
   return (
@@ -113,52 +135,61 @@ const Main = () => {
 
       {/* triple */}
       <div className="triple has-padding">
-        <a className="firstRow" href="##">
-          <img src="./images/Group-256.png" alt="" />
-        </a>
-        <Link to="/all-products/1" className="firstRow">
-          <img src="./images/Group-255 (1).png" alt="" />
+        <Link className="firstRow" to="/all-products/1">
+          <img src={`./images/${breakpoint}Group-256.png`} alt="" />
         </Link>
-        <a className="firstRow" href="##">
-          <img src="./images/Group-255.png" alt="" />
-        </a>
-        <a className="firstRow" href="##">
-          <img src="./images/Group-254.png" alt="" />
-        </a>
-        <a className="secondRow" href="##">
-          <img src="./images/Group-257 (1).png" alt="" />
-        </a>
-        <a className="secondRow" href="##">
-          <img src="./images/Group-253.png" alt="" />
-        </a>
-        <a className="secondRow" href="##">
-          <img src="./images/Group-257.png" alt="" />
-        </a>
+        <Link to="/all-products/1" className="firstRow">
+          <img src={`./images/${breakpoint}Group-255 (1).png`} alt="" />
+        </Link>
+        <Link className="firstRow" to="/all-products/1">
+          <img src={`./images/${breakpoint}Group-255.png`} alt="" />
+        </Link>
+        <Link className="firstRow" to="/all-products/1">
+          <img src={`./images/${breakpoint}Group-254.png`} alt="" />
+        </Link>
+        <Link className="secondRow" to="/all-products/1">
+          <img src={`./images/${breakpoint}Group-257 (1).png`} alt="" />
+        </Link>
+        <Link className="secondRow" to="/all-products/1">
+          <img src={`./images/${breakpoint}Group-253.png`} alt="" />
+        </Link>
+        <Link className="secondRow" to="/all-products/1">
+          <img src={`./images/${breakpoint}Group-257.png`} alt="" />
+        </Link>
       </div>
 
       {/* products */}
       <div className="products__home has-padding">
         <div className="products__home__buttons">
           {categories.map((item) => (
-            <button onClick={() => filterProducts(item)} className="two">
+            <button
+              onClick={() => filterProducts(item)}
+              key={item}
+              className={activeCat === item && "active"}
+            >
               {item}
             </button>
           ))}
         </div>
         <div className="products__home__products">
           {productsInfo.map((product) => (
-            <ProductItem product={product} />
+            <ProductItem product={product} key={product.id} />
           ))}
         </div>
         <div className="products__home__more">
-          <a href="##" className="">
+          <div
+            onClick={() => {
+              setActiveCat(null);
+              setProductsInfo(MenProducts);
+            }}
+          >
             <span className="products__home__more__text">مشاهده همه</span>
-          </a>
+          </div>
         </div>
       </div>
 
       {/* swiper slider */}
-      <div className="bg__dark">
+      <div>
         <div className="products__slider">
           <div className="products__slider__info">
             <div className="products__slider__info__top">
@@ -166,12 +197,16 @@ const Main = () => {
               <h4>Best Selling Products</h4>
             </div>
             <div className="products__slider__info__bottom">
-              <a href="/products" className="">
+              <Link to="/all-products/1">
                 <span className="products__home__more__text">مشاهده همه</span>
-              </a>
+              </Link>
             </div>
           </div>
-          <Slider className="products__main__slider" />
+          {breakpoint === 0 ? (
+            <Slider className="products__main__slider" />
+          ) : (
+            <Sliderr className="products__main__slider" />
+          )}
         </div>
       </div>
 

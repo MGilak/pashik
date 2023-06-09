@@ -7,7 +7,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, EffectCoverflow, Pagination } from "swiper";
 
-const Slider = () => {
+const Sliderr = () => {
   const sliderSuggestion = [
     {
       id: 1,
@@ -70,17 +70,21 @@ const Slider = () => {
   return (
     <>
       <Swiper
-        spaceBetween={20}
+        effect={"coverflow"}
+        grabCursor={true}
+        spaceBetween={150}
         centeredSlides={true}
-        slidesPerView={3}
+        slidesPerView={"auto"}
         loop={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
+        coverflowEffect={{
+          rotate: 30,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Navigation]}
-        // modules={[Navigation]}
+        pagination={false}
+        modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
         {sliderSuggestion.map((item) => (
@@ -144,4 +148,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Sliderr;

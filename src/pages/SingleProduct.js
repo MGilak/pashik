@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Ref, useRef, useEffect } from "react";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Breadcrumb from "../components/breadcrumb/Breadcrumb";
@@ -21,6 +21,11 @@ const SingleProduct = () => {
     size: false,
     sizeId: null,
   });
+
+  const scrollRef = useRef();
+  useEffect(() => {
+    scrollRef.current.scrollTop = 0;
+  }, []);
 
   const { images, price, sizes } = product;
 
@@ -55,7 +60,7 @@ const SingleProduct = () => {
   };
 
   return (
-    <div>
+    <div ref={scrollRef}>
       <Header />
       <Breadcrumb
         links={[

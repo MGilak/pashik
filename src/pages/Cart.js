@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header from "../components/header/Header";
 import Breadcrumb from "./../components/breadcrumb/Breadcrumb";
 import Footer from "../components/footer/Footer";
@@ -12,6 +12,11 @@ const Cart = () => {
 
   const dispatch = useCartActions();
   const { cart } = useCart();
+
+  const scrollRef = useRef();
+  useEffect(() => {
+    scrollRef.current.scrollTop = 0;
+  }, []);
 
   const incHandler = (cartItem) => {
     dispatch({ type: "ADD", payload: cartItem });
@@ -39,7 +44,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart_page">
+    <div ref={scrollRef} className="cart_page">
       <Header />
       <Breadcrumb
         links={[
