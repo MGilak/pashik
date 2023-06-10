@@ -46,6 +46,13 @@ const SingleProduct = () => {
     }
   };
 
+  const totalPrice = () => {
+    let total = cart.reduce((sum, obj) => {
+      return sum + obj.price * obj.quantity;
+    }, 0);
+    return +total;
+  };
+
   const incHandler = (cartItem) => {
     dispatch({ type: "ADD", payload: cartItem });
   };
@@ -617,7 +624,9 @@ const SingleProduct = () => {
             <div className="side__cart__buttons">
               <div className="side__cart__buttons__price">
                 <span>مجموع:</span>
-                <span class="side__cart__buttons__price__total">۱.۶۴۴.۰۰۰</span>
+                <span class="side__cart__buttons__price__total">
+                  {totalPrice()}
+                </span>
                 <span>تومان</span>
               </div>
 

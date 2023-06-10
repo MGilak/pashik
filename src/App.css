@@ -395,7 +395,7 @@ video {
   transition: all 0.4s ease-in-out;
 }
 .side__cart.open {
-  z-index: 100;
+  z-index: 200;
   opacity: 1;
   transform: translate(0);
 }

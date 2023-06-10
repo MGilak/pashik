@@ -247,12 +247,10 @@ const Cart = () => {
 
                   <div className="total-price-detail">
                     <div>
-                      <span class="fontsize-medium">
-                        مجموع قیمت های کالا :{" "}
-                      </span>
+                      <span>مجموع قیمت های کالا : </span>
                       <span>
-                        <span class="fontsize-medium">{totalPrice()}</span>
-                        <span class="fontsize-small"> تومان</span>
+                        <span>{totalPrice()}</span>
+                        <span> تومان</span>
                       </span>
                     </div>
 
