@@ -451,6 +451,7 @@ a.secondRow {
   }
   .banners__home {
     padding: 0 1rem;
+    padding-top: 50px;
   }
   .banners__home__right {
     display: none;
@@ -509,5 +510,14 @@ a.secondRow {
   .orange-circle {
     width: 300px;
     height: 300px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .products__home__buttons button {
+    padding: 2px 15px;
+    font-size: 0.8rem;
+  }
+  .products__home__buttons button {
+    margin: 0 12px;
   }
 }
