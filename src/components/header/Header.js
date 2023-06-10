@@ -640,6 +640,11 @@ const Header = () => {
                 </svg>
               </Link>
             </button>
+            {cart.length > 0 ? (
+              <span class="cart__button__quantity small center">
+                {cart.length}
+              </span>
+            ) : null}
           </div>
           <a href="##" className="moblie-menu-top-center">
             <svg

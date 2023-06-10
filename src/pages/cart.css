@@ -52,12 +52,12 @@
 }
 .cart__one__table__body__item__detail__delete {
   position: absolute;
-  top: 50%;
-  right: -1rem;
+  top: 14%;
+  right: 3.5%;
   transform: translateY(-50%);
   background: #fa320f;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
@@ -354,4 +354,42 @@
 }
 .swal-button--catch {
   background: var(--color2);
+}
+
+/******************************************************************/
+/* responsive */
+@media only screen and (max-width: 1080px) {
+  .cart__one__table__body__item__price,
+  .total-price {
+    display: none;
+  }
+
+  .cart__one__table__body__item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .cart__one__table__body__item > * {
+    justify-content: space-around;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .cart__one__table__header > *:not(:first-child) {
+    display: none;
+  }
+  .cart__one__table__body__item__quantity .product__quantity__container {
+    display: block !important;
+  }
+  .cart__next__prev {
+    justify-content: center;
+  }
+  .cart__one__table__body__item__detail__image {
+    height: 300px;
+    width: 320px;
+  }
+  .cart__one__table__body__item__detail__delete {
+    top: 9%;
+  }
 }

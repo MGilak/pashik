@@ -16,3 +16,11 @@
 .breadcrumb svg {
   margin: 0 1.2rem;
 }
+
+/******************************************************************/
+/* responsive */
+@media only screen and (max-width: 1080px) {
+  .breadcrumb {
+    display: none;
+  }
+}

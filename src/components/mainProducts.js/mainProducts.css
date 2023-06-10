@@ -256,3 +256,17 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+
+/******************************************************************/
+/* responsive */
+@media only screen and (max-width: 1080px) {
+  .products__list__header__sort > span,
+  .products__list__header__sort__count,
+  .products__list__side {
+    display: none;
+  }
+  .products__list__main__body {
+    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -89,31 +89,30 @@ const Cart = () => {
                         href="##"
                       >
                         <img src={cart ? item.images[0] : ""} alt="" />
-                      </a>
-
-                      <div
-                        onClick={() => showModal(item)}
-                        class="cart__one__table__body__item__detail__delete"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="18.454"
-                          height="19.373"
-                          viewBox="0 0 18.454 19.373"
-                          data-v-1e8d8000=""
+                        <div
+                          onClick={() => showModal(item)}
+                          class="cart__one__table__body__item__detail__delete"
                         >
-                          <path
-                            id="Union_5"
-                            data-name="Union 5"
-                            d="M1981.5,442l-8.5,9,8.5-9-8.5-9,8.5,9,8.5-9-8.5,9,8.5,9Z"
-                            transform="translate(-1972.273 -432.313)"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18.454"
+                            height="19.373"
+                            viewBox="0 0 18.454 19.373"
+                            data-v-1e8d8000=""
+                          >
+                            <path
+                              id="Union_5"
+                              data-name="Union 5"
+                              d="M1981.5,442l-8.5,9,8.5-9-8.5-9,8.5,9,8.5-9-8.5,9,8.5,9Z"
+                              transform="translate(-1972.273 -432.313)"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-width="2"
+                            ></path>
+                          </svg>
+                        </div>
+                      </a>
 
                       <div class="cart__one__table__body__item__detail__info">
                         <a

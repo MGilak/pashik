@@ -93,8 +93,15 @@
   margin-inline-end: 4px;
   font-size: 20px;
 }
-
 .imagee {
   width: 100px;
   height: 100px;
+}
+
+/******************************************************************/
+/* responsive */
+@media only screen and (max-width: 1080px) {
+  .product__image {
+    max-height: 428px;
+  }
 }

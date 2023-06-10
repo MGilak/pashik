@@ -39,6 +39,7 @@ header {
 .header .navbar__header li a {
   color: #fff;
   margin-left: 6px;
+  white-space: nowrap;
 }
 .header .navbar__header li > span svg {
   transition: all 0.3s ease-in-out;
@@ -327,5 +328,9 @@ header .bottom-left {
   }
   .hamburger {
     display: none;
+  }
+  .moblie-menu-top-right .small {
+    left: 18px;
+    top: 6px;
   }
 }
